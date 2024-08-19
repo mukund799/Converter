@@ -1,6 +1,7 @@
 function convertImage() {
     const fileInput = document.getElementById('file-input');
     const conversionType = document.getElementById('conversion-type').value;
+    alert("conversion type is "+conversionType)
     const file = fileInput.files[0];
     console.log(file)
     if (!file) {
@@ -10,7 +11,6 @@ function convertImage() {
 
     const reader = new FileReader();
     reader.onload = function(event) {
-
         if(conversionType === "png-to-jpg")
             extension = "jpg"
         else if(conversionType === "jpg-to-png")
