@@ -16,7 +16,7 @@ function convertImage() {
         else if(conversionType === "jpg-to-png")
             extension = "png"
         let name = "output."+extension
-
+        alert("output file name is "+name)
         // to enable view image
         outputImage = document.getElementById("output-image")
         outputImage.style.display = 'inline';
