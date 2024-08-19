@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Converter and Resizer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .section {
+            margin-top: 20px;
+        }
+        button {
+            margin-top: 10px;
+        }
+        #result img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Image Tools</h1>
+
+    <button onclick="showSection('format-section')">Change Format</button>
+    <button onclick="showSection('size-section')">Change Size</button>
+
+    <!-- Change Format Section -->
+    <div id="format-section" class="section" style="display:none;">
+        <h2>Change Image Format</h2>
+        <form id="converter-form">
+            <label for="conversion-type">Select Conversion Type:</label>
+            <select id="conversion-type" required>
+                <option value="png-to-jpg">PNG to JPG</option>
+                <option value="jpg-to-png">JPG to PNG</option>
+            </select>
+            <br><br>
+
+            <label for="file-input">Choose an image file:</label>
+            <input type="file" id="file-input" accept="image/png, image/jpeg" required>
+            <br><br>
+
+            <button type="button" onclick="convertImage()">Convert Image</button>
+        </form>
+
+        <div id="result">
+            <h2>Converted Image:</h2>
+            <img id="output-image" src="" alt="Converted Image" style="display:none;">
+            <br>
+            <a id="download-link" href="#" download="converted-image" style="display:none;">
+                <button>Download Image</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- Change Size Section -->
+    <div id="size-section" class="section" style="display:none;">
+        <h2>Change Image Size</h2>
+        <label for="fileInput">Choose an image file:</label>
+        <input type="file" id="fileInput" accept="image/png, image/jpeg" required>
+        <br><br>
+        <label for="targetSize">Target size in KB:</label>
+        <input type="number" id="targetSize" placeholder="Target size in KB" required>
+        <br><br>
+        <button onclick="resizeImage()">Resize</button>
+        <br><br>
+        <a id="downloadLink" href="#" download="resized_image.jpg" style="display:none;">
+            <button>Download Resized Image</button>
+        </a>
+    </div>
+
+    <script src="solution.js"></script>
+    <script>
+        function showSection(sectionId) {
+            document.getElementById('format-section').style.display = 'none';
+            document.getElementById('size-section').style.display = 'none';
+            document.getElementById(sectionId).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
